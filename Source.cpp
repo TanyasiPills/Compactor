@@ -4,7 +4,7 @@
 #include <bitset>
 
 int main() {
-	std::string filename = "test.txt";
+	std::string filename = "sad.png";
 	std::ifstream file(filename, std::ios::binary);
 
 	if (!file.is_open()) {
@@ -13,4 +13,16 @@ int main() {
 	}
 
 	std::vector<unsigned char> buffer((std::istreambuf_iterator<char>)(file), std::istreambuf_iterator<char>());
+
+	file.close();
+
+	for (unsigned char byte : buffer) {
+		std::bitset<8> bits(byte);
+		std::cout << bits << " ";
+	}
+	std::cout << std::endl;
+
+	std::string nya;
+
+	std::cin >> nya;
 }
