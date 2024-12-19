@@ -4,6 +4,8 @@
 #include <bitset>
 #include <map>
 
+//i think what i do is a very dumb idea and you should stay away from this kind of things
+
 std::vector<unsigned char> GetFile(std::string filename) {
 	std::ifstream file(filename, std::ios::binary);
 
