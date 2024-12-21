@@ -23,7 +23,7 @@ std::vector<unsigned char> GetFile(std::string filename) {
 std::vector<std::pair<char, int>> GetFrequencyPairs(std::vector<unsigned char>& buffer) {
 	std::map<char, int> freq;
 	for (size_t i = 1; i < buffer.size(); i += 2) {
-		char combined = (static_cast<char>(buffer[i - 1]) << 8) | buffer[i];
+		short combined = (static_cast<short>(buffer[i - 1]) << 8) | buffer[i];
 		freq[combined]++;
 	}
 
@@ -58,8 +58,7 @@ std::vector<LZ77Token> Compression(std::vector<unsigned char>& data) {
 
 		for (int i = searchStart; i < searcheEnd; ++i) {
 			int lenght = 0;
-			while (lenght < lookBuffer && position + lenght < data.size() && data[i + lenght] == data[position + lenght])
-			{
+			while (lenght < lookBuffer && position + lenght < data.size() && i + lenght < position && data[i + lenght] == data[position + lenght]) {
 				lenght++;
 			}
 			if (lenght > maxLenght) {
@@ -85,7 +84,7 @@ void compressedOut(const std::vector<LZ77Token>& compressed) {
 
 int main() {
 
-	std::vector<unsigned char> buffer{ 'h', 'e', 'o'};
+	std::vector<unsigned char> buffer{ 'h', 'e', 'o', 'h','e','o'};
 	//std::vector<unsigned char> buffer =;
 	std::vector<LZ77Token> cheese = Compression(buffer);
 	compressedOut(cheese);
