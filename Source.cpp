@@ -70,6 +70,7 @@ std::vector<LZ77Token> Compression(std::vector<unsigned char>& data) {
 
 		next = (position + maxLenght < data.size()) ? data[position + maxLenght] : '\0';
 		compressed.emplace_back(offset, maxLenght, next);
+		position += maxLenght + 1;
 	}
 
 	return compressed;
