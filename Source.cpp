@@ -81,11 +81,6 @@ void compressedOut(const std::vector<LZ77Token>& compressed) {
 	}
 }
 
-void nem() {
-	std::cout << "so i need to do this" << std::endl;
-} 
-
-
 int main() {
 
 	std::vector<unsigned char> buffer{ 'h', 'e', 'o', 'h','e','o'};
