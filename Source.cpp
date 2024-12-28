@@ -81,10 +81,6 @@ void compressedOut(const std::vector<LZ77Token>& compressed) {
 	}
 }
 
-int iShouldBeSleepingByNow() {
-	//idk man i dont feel shit
-}
-
 int main() {
 
 	std::vector<unsigned char> buffer{ 'h', 'e', 'o', 'h','e','o'};
