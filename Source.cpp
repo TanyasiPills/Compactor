@@ -94,7 +94,3 @@ int main() {
 	std::string nya;
 	std::cin >> nya;
 }
-
-void IDontFeel() {
-	std::cout << "and i CANT EAT" << " =)" << std::endl;
-}
